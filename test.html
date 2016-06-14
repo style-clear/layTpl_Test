@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<script type="text/javascript" src="jquery-1.9.0.min.js"></script>
+		<script type="text/javascript" src="laytpl/laytpl.js"></script>
+	</head>
+	<body>
+
+		<div id="view" style="">
+		</div>
+
+		<script>
+			var data = {
+				title:'我们的介绍',
+				intro:'一起来，一起走，未来是我们的',
+				list:[
+					{name:'张斐儿',sex:'female',province:'ShanXi',professor:'English',describe:'脾气，真像'},
+					{name:'小许',sex:'male',province:'ShanXi',professor:'School of Computer Science and Engering',describe:'够倔，哈哈哈'},
+					{name:'张斐儿',sex:'female',province:'ShanXi',professor:'English',describe:'脾气，真像'},
+					{name:'小许',sex:'male',province:'ShanXi',professor:'School of Computer Science and Engering',describe:'够倔，哈哈哈'},
+					{name:'张斐儿',sex:'female',province:'ShanXi',professor:'English',describe:'脾气，真像'},
+					{name:'小许',sex:'male',province:'ShanXi',professor:'School of Computer Science and Engering',describe:'够倔，哈哈哈'},
+					{name:'张斐儿',sex:'female',province:'ShanXi',professor:'English',describe:'脾气，真像'},
+					{name:'小许',sex:'male',province:'ShanXi',professor:'School of Computer Science and Engering',describe:'够倔，哈哈哈'},
+					{name:'张斐儿',sex:'female',province:'ShanXi',professor:'English',describe:'脾气，真像'},
+					{name:'小许',sex:'male',province:'ShanXi',professor:'School of Computer Science and Engering',describe:'够倔，哈哈哈'},
+					],
+			};
+		</script>
+
+		<script id="template" type="text/html">
+			<h1>{{ d.title }}</h1>
+			<h3>{{ d.intro }}</h3>
+			<ul>
+				{{# for(var i=0,len=d.list.length;i<len;i++){ }}
+					<br><br>
+					<li>
+						<span>姓名：</span> {{ d.list[i].name }}
+						<span>性别：</span> {{ d.list[i].sex }}
+						<span>家乡：</span> {{ d.list[i].province }}
+						<span>专业：</span> {{ d.list[i].professor }}
+						<span>描述：</span> {{ d.list[i].describe }}
+					</li>
+					<br>
+					-------------------------------------------------------------------------------------------------------
+				{{# } }}
+			</ul>
+		</script>
+
+		<script>
+			<!--渲染模板-->
+			var gettp1 = $("#template").html();
+			laytpl(gettp1).render(data,function(html){
+				$("#view").html(html);
+			});
+		</script>
+		
+	</body>
+</html>	
